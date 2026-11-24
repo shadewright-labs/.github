@@ -17,4 +17,4 @@ Shared Go building blocks used by our products: [armory](https://github.com/shad
 
 ## Contributing and security
 
-Each repository has its own `CONTRIBUTING.md` and `SECURITY.md`. Report a vulnerability through the "Report a vulnerability" button of the repository it concerns, not in a public issue.
+Start with [CONTRIBUTING.md](https://github.com/shadewright-labs/shadewright/blob/main/CONTRIBUTING.md) in the Shadewright repository. To report a vulnerability, use the "Report a vulnerability" button on the Security tab of the repository it concerns, or follow [SECURITY.md](https://github.com/shadewright-labs/shadewright/blob/main/SECURITY.md). Please do not open a public issue for it.
