@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="16" viewBox="0 0 640 16" role="img" aria-label="">
+  <line x1="0" y1="8" x2="286" y2="8" stroke="#8735F5" stroke-opacity=".45" stroke-width="1"/>
+  <line x1="354" y1="8" x2="640" y2="8" stroke="#8735F5" stroke-opacity=".45" stroke-width="1"/>
+  <path d="M296 8l10-5v10z" fill="#8735F5"/>
+  <path d="M344 8l-10-5v10z" fill="#8735F5"/>
+  <path d="M320 1l6 7-6 7-6-7z" fill="#8735F5"/>
+  <path d="M320 4l3.4 4-3.4 4-3.4-4z" fill="#CAA5FF"/>
+</svg>
