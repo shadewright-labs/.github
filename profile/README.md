@@ -20,7 +20,7 @@
 
 Shadewright Labs is an independent software house. We build tools that let automation work on real systems inside limits a person can read and check: a typed change, a pull request, a verified result.
 
-A *wright* is a maker, as in shipwright or wheelwright. Ours work in the half-light while operators sleep, and they sign what they make.
+In the house's lore, dark-elven wrights signed their work with the seal of the Arcane Forge: four ivory points around a violet crystal, and behind it a web that traces the parts holding a piece together. A *wright* is a maker, as in shipwright or wheelwright. The seal is the maker's signature on all three products.
 
 ## The workshop
 
@@ -36,11 +36,13 @@ A *wright* is a maker, as in shipwright or wheelwright. Ours work in the half-li
       </a>
     </td>
     <td>
-      <strong>Shadewright, the Guardian</strong><br>
+      <strong>Shadewright, the Guardian</strong> · early releases<br>
       <em>Find the fault. Put the fix up for review.</em><br><br>
-      A safe-remediation controller for Kubernetes clusters run with GitOps. It investigates an incident, turns an untrusted proposal into a typed and bounded change, delivers it only as a pull request, and verifies the result after the merge.<br><br>
+      <em>The Guardian is one hooded wright of the house, at work in the half-light while others sleep. It watches from the edge, lays no hand on what it guards and keeps quiet until it finds the fault. Then it shapes a fix at its bench and hands it over, and others judge whether the work is fit to use.</em><br><br>
+      A Kubernetes operator for clusters run with GitOps. It watches events and object status in the namespaces you choose and groups them into incidents, proposes a typed change from a closed catalog of actions that deterministic policy checks, and opens a pull request in your GitOps repository with the evidence and a rollback plan. It never changes your workloads itself.<br><br>
       <a href="https://github.com/shadewright-labs/shadewright">Code</a> ·
       <a href="https://shadewright.io/">Docs</a> ·
+      <a href="https://github.com/shadewright-labs/shadewright/blob/main/SECURITY.md">Security policy</a> ·
       <a href="https://github.com/shadewright-labs/shadewright-azure">Reference lab</a> ·
       <a href="https://github.com/shadewright-labs/shadewright-fleet">Lab scenarios</a>
     </td>
@@ -56,12 +58,25 @@ A *wright* is a maker, as in shipwright or wheelwright. Ours work in the half-li
       </a>
     </td>
     <td>
-      <strong>Sablecourt, the Court</strong><br>
+      <strong>Sablecourt, the Court</strong> · nothing released yet<br>
       <em>Many agents. One set of rules.</em><br><br>
-      A control plane for coding agents, sandboxes and deterministic controllers, declared in manifests. It puts a model gate with cost accounting in front of the model providers and a policy that says allow, approve or deny in front of tools and typed actions, and it pins each approval to the digest of what it covers. Pre-release: the code is public, nothing is released yet, and its open security work is tracked in the repository.<br><br>
+      <em>The Court is three hooded councilors under a sable banner, and every agent or program that comes before them. Each keeps to its own seat and may only ask. The councilors answer from one written law: what it allows goes ahead, what it does not name is refused, and the gravest matters wait for a person's seal.</em><br><br>
+      Runs many coding agents, sandboxes and deterministic controllers under one set of rules, declared in manifests. A model gate with cost accounting sits in front of the model providers, and a policy that says allow, approve or deny sits in front of tools and typed actions. An approval is pinned to the SHA-256 digest of what it covers. The source is public; there is no release yet, and its open security work is tracked in the repository.<br><br>
       <a href="https://github.com/shadewright-labs/sablecourt">Code</a> ·
       <a href="https://github.com/shadewright-labs/sablecourt/tree/main/docs">Docs</a> ·
-      <a href="https://github.com/shadewright-labs/sablecourt/blob/main/SECURITY.md">Security</a>
+      <a href="https://github.com/shadewright-labs/sablecourt/blob/main/SECURITY.md">Security policy</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="260" align="center">
+      <img src="assets/nightloom.jpg" alt="Nightloom" width="230">
+    </td>
+    <td>
+      <strong>Nightloom, the Watcher</strong> · not released<br>
+      <em>See what's running. Know what needs you.</em><br><br>
+      <em>The Watcher sits at the loom of the house, under the eclipse. Each running session is a thread across the frame, from every terminal and every machine. The Watcher weaves none of them: it follows them all, sees which has stopped or gone quiet, and knows the one that is waiting for your hand.</em><br><br>
+      One view of the coding sessions running across terminals and machines, and of the decisions waiting for the operator. Nightloom is not public yet: there is no repository or download to link to.<br><br>
+      <a href="https://shadewrightlabs.com/">More on the site</a>
     </td>
   </tr>
 </table>
@@ -77,9 +92,19 @@ A *wright* is a maker, as in shipwright or wheelwright. Ours work in the half-li
 | [shadewright-labs.github.io](https://github.com/shadewright-labs/shadewright-labs.github.io) | The site at [shadewrightlabs.com](https://shadewrightlabs.com/) |
 | [armory](https://github.com/shadewright-labs/armory) | Shared Go building blocks: redaction, hygiene checks, tamper-evident audit chains |
 
+## Six shared security laws
+
+Every product follows the same six laws. They are rules, not a claim that every product keeps each one today: each product's security page says where it stands ([Shadewright's threat model](https://shadewright.io/threat-model/), [Sablecourt's security policy](https://github.com/shadewright-labs/sablecourt/blob/main/SECURITY.md)).
+
+1. **Model output is never authorization.** A model or an agent can only propose. Deterministic code or a person decides what runs.
+2. **Evidence over inference.** A status rests on timestamped observations of the system and says when they were made.
+3. **Zero raw credentials in untrusted contexts.** A credential stays with the component it was issued to; model-directed work gets a short-lived lease scoped to one task.
+4. **Bounded redaction at every disclosure boundary.** Outside text is redacted for known secret forms, in bounded time, before it reaches a model, storage, logs or a person.
+5. **Out-of-band confirmation for high-impact actions.** A browser click is not proof of intent, so a person confirms on a channel that a local program cannot drive.
+6. **Tamper-evident audit and separated authority.** Every decision leaves an audit record the executor cannot rewrite undetected, and no identity approves its own work.
+
 ## How we build
 
-- Untrusted input stays untrusted. A model proposes; code decides.
 - A change reaches a cluster only through a pull request a person can review.
 - Every Shadewright release is signed and attested, and the docs say how to verify it.
 - Decisions are written down as ADRs before the code.
