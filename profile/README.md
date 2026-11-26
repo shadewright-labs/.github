@@ -9,10 +9,11 @@
 <p align="center"><em>Crafted in Shadow. Engineered with Purpose.</em></p>
 
 <p align="center">
-  <a href="https://shadewright.io/">Docs</a> ·
+  <a href="https://shadewrightlabs.com/">Site</a> ·
   <a href="https://github.com/shadewright-labs/shadewright">Shadewright</a> ·
-  <a href="https://github.com/shadewright-labs/shadewright/releases">Releases</a> ·
-  <a href="https://github.com/shadewright-labs/shadewright/blob/main/SECURITY.md">Security</a>
+  <a href="https://github.com/shadewright-labs/sablecourt">Sablecourt</a> ·
+  <a href="https://shadewright.io/">Shadewright docs</a> ·
+  <a href="https://github.com/shadewright-labs/shadewright/releases">Releases</a>
 </p>
 
 <p align="center"><img src="assets/rule.svg" alt="" width="640"></p>
@@ -46,16 +47,21 @@ A *wright* is a maker, as in shipwright or wheelwright. Ours work in the half-li
   </tr>
   <tr>
     <td width="260" align="center">
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="assets/sablecourt-dark.png">
-        <source media="(prefers-color-scheme: light)" srcset="assets/sablecourt-light.png">
-        <img src="assets/sablecourt-dark.png" alt="Sablecourt" width="230">
-      </picture>
+      <a href="https://github.com/shadewright-labs/sablecourt">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/sablecourt-dark.png">
+          <source media="(prefers-color-scheme: light)" srcset="assets/sablecourt-light.png">
+          <img src="assets/sablecourt-dark.png" alt="Sablecourt" width="230">
+        </picture>
+      </a>
     </td>
     <td>
       <strong>Sablecourt, the Court</strong><br>
       <em>Many agents. One set of rules.</em><br><br>
-      A council of coding agents under shared rules. Not available yet.
+      A control plane for coding agents, sandboxes and deterministic controllers, declared in manifests. It puts a model gate with cost accounting in front of the model providers and a policy that says allow, approve or deny in front of tools and typed actions, and it pins each approval to the digest of what it covers. Pre-release: the code is public, nothing is released yet, and its open security work is tracked in the repository.<br><br>
+      <a href="https://github.com/shadewright-labs/sablecourt">Code</a> ·
+      <a href="https://github.com/shadewright-labs/sablecourt/tree/main/docs">Docs</a> ·
+      <a href="https://github.com/shadewright-labs/sablecourt/blob/main/SECURITY.md">Security</a>
     </td>
   </tr>
 </table>
@@ -67,13 +73,15 @@ A *wright* is a maker, as in shipwright or wheelwright. Ours work in the half-li
 | [shadewright](https://github.com/shadewright-labs/shadewright) | The operator, its Helm chart and the `kubectl shadewright` plugin |
 | [shadewright-azure](https://github.com/shadewright-labs/shadewright-azure) | Terraform for a disposable reference lab on AKS |
 | [shadewright-fleet](https://github.com/shadewright-labs/shadewright-fleet) | The lab's Flux repo: the agent install, demo workloads and incident scenarios |
+| [sablecourt](https://github.com/shadewright-labs/sablecourt) | The daemon `sablecourtd`, the `sablectl` command line and the agent runtime (pre-release) |
+| [shadewright-labs.github.io](https://github.com/shadewright-labs/shadewright-labs.github.io) | The site at [shadewrightlabs.com](https://shadewrightlabs.com/) |
 | [armory](https://github.com/shadewright-labs/armory) | Shared Go building blocks: redaction, hygiene checks, tamper-evident audit chains |
 
 ## How we build
 
 - Untrusted input stays untrusted. A model proposes; code decides.
 - A change reaches a cluster only through a pull request a person can review.
-- Every release is signed and attested, and the docs say how to verify it.
+- Every Shadewright release is signed and attested, and the docs say how to verify it.
 - Decisions are written down as ADRs before the code.
 
 <p align="center"><img src="assets/rule.svg" alt="" width="640"></p>
